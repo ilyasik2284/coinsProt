@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    private RaycastHit2D hit;
     private Vector3 moveSide;
     private BoxCollider2D boxCollider2d;
 
@@ -27,6 +28,18 @@ public class PlayerMovement : MonoBehaviour
         else if (moveSide.x < 0) 
             transform.localScale = new Vector3(-1,1,1);
 
-        transform.Translate(moveSide * Time.deltaTime);
+        hit = Physics2D.BoxCast(transform.position, boxCollider2d.size, 0, new Vector2(0, moveSide.y), Mathf.Abs(moveSide.y * Time.deltaTime), LayerMask.GetMask("Player", "Walls"));
+        if (hit.collider == null)
+        {
+            transform.Translate(0, moveSide.y * Time.deltaTime, 0);
+        }
+
+
+        hit = Physics2D.BoxCast(transform.position, boxCollider2d.size, 0, new Vector2(moveSide.x, 0), Mathf.Abs(moveSide.x * Time.deltaTime), LayerMask.GetMask("Player", "Walls"));
+        if (hit.collider == null)
+        {
+            transform.Translate(moveSide.x * Time.deltaTime, 0, 0);
+        }
+
     }
 }
