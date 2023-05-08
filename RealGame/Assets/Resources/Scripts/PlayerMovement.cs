@@ -1,45 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(BoxCollider2D))]
-public class PlayerMovement : MonoBehaviour
+
+
+private Rigidbody2D body;
+private float horizontal;
+private float vertical;
+private float moveLimiter = 0.7f;
+
+public float runSpeed = 20.0f;
+
+void Start()
 {
-    private RaycastHit2D hit;
-    private Vector3 moveSide;
-    private BoxCollider2D boxCollider2d;
+    body = GetComponent<Rigidbody2D>();
+}
 
-    void Awake()
+void Update()
+{
+    // Gives a value between -1 and 1
+    horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
+    vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+}
+
+void FixedUpdate()
+{
+    if (horizontal != 0 && vertical != 0) // Check for diagonal movement
     {
-        boxCollider2d= GetComponent<BoxCollider2D>(); 
+        // limit movement speed diagonally, so you move at 70% speed
+        horizontal *= moveLimiter;
+        vertical *= moveLimiter;
     }
 
-
-    void FixedUpdate()
-    {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-
-        moveSide = new Vector3(x,y,0);
-
-        if (moveSide.x > 0)
-            transform.localScale = Vector3.one;
-
-        else if (moveSide.x < 0) 
-            transform.localScale = new Vector3(-1,1,1);
-
-        hit = Physics2D.BoxCast(transform.position, boxCollider2d.size, 0, new Vector2(0, moveSide.y), Mathf.Abs(moveSide.y * Time.deltaTime), LayerMask.GetMask("Player", "Walls"));
-        if (hit.collider == null)
-        {
-            transform.Translate(0, moveSide.y * Time.deltaTime, 0);
-        }
-
-
-        hit = Physics2D.BoxCast(transform.position, boxCollider2d.size, 0, new Vector2(moveSide.x, 0), Mathf.Abs(moveSide.x * Time.deltaTime), LayerMask.GetMask("Player", "Walls"));
-        if (hit.collider == null)
-        {
-            transform.Translate(moveSide.x * Time.deltaTime, 0, 0);
-        }
-
-    }
+    body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
 }

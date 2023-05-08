@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,10 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float bounderY = 0.05f;
 
 
+    private void Awake()
+    {
+        target = GetComponent<Transform>();
+    }
     void LateUpdate()
     {
         Vector3 delta = Vector3.zero;
