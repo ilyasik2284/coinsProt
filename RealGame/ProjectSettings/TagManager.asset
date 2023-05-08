@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - DisSpawn
   layers:
   - Default
   - TransparentFX
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: collision
     uniqueID: 354955315
+    locked: 0
+  - name: Dis
+    uniqueID: 283757661
     locked: 0
   - name: Player
     uniqueID: 3999185131
