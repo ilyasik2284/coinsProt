@@ -41,6 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 1706205951
+    locked: 0
+  - name: GroundObj
+    uniqueID: 4675155
+    locked: 0
+  - name: collision
+    uniqueID: 354955315
+    locked: 0
   - name: Player
     uniqueID: 3999185131
     locked: 0

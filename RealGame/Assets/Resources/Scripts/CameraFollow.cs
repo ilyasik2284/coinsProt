@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Awake()
     {
-        target = GetComponent<Transform>();
+        //target = GetComponent<Transform>();
     }
     void LateUpdate()
     {
