@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public Transform target;
     [SerializeField] private float bounderX = 0.15f;
