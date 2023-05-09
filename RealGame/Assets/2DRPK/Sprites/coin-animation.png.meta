@@ -149,6 +149,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BigCoin
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 0
+        width: 50
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0dd890389a556f4cbcdacaf0a97b798
+      internalID: 3344596444136561788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -160,8 +181,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BigCoin: 3344596444136561788
       coin-animation_0: 8980438598086963491
-      coin-animation_1: 3344596444136561788
       coin-animation_2: 1158639269171017508
       coin-animation_3: -6541766136644436370
   spritePackingTag: 
