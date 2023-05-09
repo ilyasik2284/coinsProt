@@ -1,39 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CoinsSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefab = new GameObject[2];
-    private int LowBounder = 50;
-    private int HighBounder = 70;
-    // [SerializeField] private Vector3 local;
-
 
     void Awake()
     {
-
-        for (int i = 0; i < Random.Range(15, 30); i++)
+        for (int i = 0; i < 50; i++)
         {
             SpawnCoins();
+            SpawnCoins();
         }
-
-
     }
 
     void SpawnCoins()
     {
-        float X = Random.Range(-4.3f, 3.2f);
-        float Y = Random.Range(-3.35f, 2.29f);
+        float X = Random.Range(-5.7f, 3.2f); //границы карты
+        float Y = Random.Range(-4.45f, 2.3f);
         float Z = 0;
-
 
         Vector3 local = transform.position;
         local = new Vector3(X, Y, Z);
-
         int index = Random.Range(0, prefab.Length);
 
-        Instantiate(prefab[index], local, Quaternion.identity);
-    }
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(local, 0.5f);
+        if (colliders.Length == 0)
+        {
+            Instantiate(prefab[index], local, Quaternion.identity);
+        }
 
+    }
 }
