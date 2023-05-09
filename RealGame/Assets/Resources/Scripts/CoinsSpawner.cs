@@ -7,19 +7,18 @@ public class CoinsSpawner : MonoBehaviour
     [SerializeField] private GameObject[] prefab = new GameObject[2];
     private int LowBounder = 50;
     private int HighBounder = 70;
-   // [SerializeField] private Vector3 local;
+    // [SerializeField] private Vector3 local;
 
 
-    void Start()
+    void Awake()
     {
-       // InvokeRepeating("SpawnCoins", 0.1f, 10);
-       SpawnCoins();
-       SpawnCoins();
-       SpawnCoins();
-       SpawnCoins();
-       SpawnCoins();
-       SpawnCoins();
-       SpawnCoins();
+
+        for (int i = 0; i < Random.Range(15, 30); i++)
+        {
+            SpawnCoins();
+        }
+
+
     }
 
     void SpawnCoins()
@@ -31,7 +30,7 @@ public class CoinsSpawner : MonoBehaviour
 
         Vector3 local = transform.position;
         local = new Vector3(X, Y, Z);
-        
+
         int index = Random.Range(0, prefab.Length);
 
         Instantiate(prefab[index], local, Quaternion.identity);
