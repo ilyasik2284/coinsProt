@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float x = Input.GetAxisRaw("Horizontal");
+        float x = Input.GetAxisRaw("Horizontal"); 
         float y = Input.GetAxisRaw("Vertical");
 
         moveSide = new Vector3(x, y, 0);
