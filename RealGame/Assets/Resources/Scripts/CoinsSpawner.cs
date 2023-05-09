@@ -6,20 +6,20 @@ using UnityEngine.UIElements;
 public class CoinsSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] prefab = new GameObject[2];
-
-    void Awake()
+    private int i = 0;
+    void Start()
     {
-        for (int i = 0; i < 50; i++)
+        while(i < 60)
         {
             SpawnCoins();
-            SpawnCoins();
+            i++;
         }
     }
 
     void SpawnCoins()
     {
-        float X = Random.Range(-5.7f, 3.2f); //границы карты
-        float Y = Random.Range(-4.45f, 2.3f);
+        float X = Random.Range(-6f, 3.2f); //границы карты
+        float Y = Random.Range(-4.5f, 2.3f);
         float Z = 0;
 
         Vector3 local = transform.position;

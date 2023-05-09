@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
 
         }
-           
 
 
         hit = Physics2D.BoxCast(transform.position, boxCollider2d.size, 0, new Vector2(moveSide.x, 0), Mathf.Abs(moveSide.x * Time.deltaTime), LayerMask.GetMask("Player", "Walls"));
@@ -39,11 +38,13 @@ public class PlayerController : MonoBehaviour
             transform.Translate(moveSide.x * Time.deltaTime, 0, 0);
         }
 
-
         hit = Physics2D.BoxCast(transform.position, boxCollider2d.size, 0, new Vector2(0, moveSide.y), Mathf.Abs(moveSide.y * Time.deltaTime), LayerMask.GetMask("Player", "Walls"));
         if (hit.collider == null)
         {
             transform.Translate(0, moveSide.y * Time.deltaTime, 0);
         }
+
+
+
     }
 }
