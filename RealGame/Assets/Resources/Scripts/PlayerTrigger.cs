@@ -11,19 +11,30 @@ public class PlayerTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.CompareTag("BigCoin"))
-        {
-            realScore += Big;
-            Destroy(other.gameObject);
-            CoinsManager.Instance.ScoreRate(realScore);
-
-        } else if (other.gameObject.CompareTag("SmallCoin"))
+        if (other.gameObject.CompareTag("SmallCoin"))
         {
             realScore = realScore + Small;
             Destroy(other.gameObject);
             CoinsManager.Instance.ScoreRate(realScore);
         }
 
-
     }
+
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+
+        if (other.gameObject.CompareTag("BigCoin"))
+        {
+            if (Input.GetKey((KeyCode.E)))
+            {
+                realScore += Big;
+                Destroy(other.gameObject);
+                CoinsManager.Instance.ScoreRate(realScore);
+            }
+
+
+        }
+    }
+
 }
