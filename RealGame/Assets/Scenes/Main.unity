@@ -32247,7 +32247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08684c5322fd07d4aa37895518346f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyText: {fileID: 1845615144}
+  _MyText: {fileID: 1845615144}
 --- !u!4 &1150869215
 Transform:
   m_ObjectHideFlags: 0
@@ -32430,7 +32430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2141269247}
-  bounderX: 0.15
+  _bounderX: 0.15
   bounderY: 0.05
 --- !u!114 &1404358099
 MonoBehaviour:
