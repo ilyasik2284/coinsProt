@@ -6,8 +6,8 @@ using UnityEngine;
 public class CoinsManager : MonoBehaviour
 {
     public static CoinsManager Instance;
-    [SerializeField] private TextMeshProUGUI MyText;
-    private int score;
+    [SerializeField] private TextMeshProUGUI _MyText;
+    private int _score;
 
     void Start()
     {
@@ -16,13 +16,13 @@ public class CoinsManager : MonoBehaviour
 
     private void Update()
     {
-        MyText.text = "Score: " + score;
+        _MyText.text = "Score: " + _score;
     }
 
-    public void ScoreRate(int score)
+    public void ScoreRate(int _score)
     {
-        this.score = score;
-        MyText.text = score.ToString();
+        this._score = _score;
+        _MyText.text = _score.ToString();
 
     }
   

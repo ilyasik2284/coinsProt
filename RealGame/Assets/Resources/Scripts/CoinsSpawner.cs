@@ -9,13 +9,11 @@ public class CoinsSpawner : MonoBehaviour
     private int i = 0;
     void Start()
     {
-
-
-        while (i < 60)
+        while (i < 30)
         {
-            SpawnCoins();
-            Debug.Log(i);
             i++;
+            SpawnCoins();
+           
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
-    [SerializeField] private float bounderX = 0.15f;
+    [SerializeField] private float _bounderX = 0.15f;
     [SerializeField] private float bounderY = 0.05f;
 
 
@@ -14,15 +14,15 @@ public class CameraFollow : MonoBehaviour
         Vector3 delta = Vector3.zero;
         float deltaX = target.position.x - transform.position.x;
 
-        if (deltaX > bounderX || deltaX < -bounderX)
+        if (deltaX > _bounderX || deltaX < -_bounderX)
         {
             if (transform.position.x < target.position.x)
             {
-                delta.x = deltaX - bounderX;
+                delta.x = deltaX - _bounderX;
             }
             else
             {
-                delta.x = deltaX + bounderX;
+                delta.x = deltaX + _bounderX;
             }
         }
 

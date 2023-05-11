@@ -4,36 +4,30 @@ using UnityEngine;
 
 public class PlayerTrigger : MonoBehaviour
 {
-    private int realScore;
-    private int Big = 2;
-    private int Small = 1;
-    private int Third;
+    private int _realScore;
+    private int _Big = 2;
+    private int _Small = 1;
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.gameObject.CompareTag("SmallCoin"))
         {
-            realScore = realScore + Small;
+            _realScore = _realScore + _Small;
             Destroy(other.gameObject);
-            CoinsManager.Instance.ScoreRate(realScore);
+            CoinsManager.Instance.ScoreRate(_realScore);
         }
-
     }
 
 
     private void OnTriggerStay2D(Collider2D other)
     {
-
         if (other.gameObject.CompareTag("BigCoin"))
         {
             if (Input.GetKey((KeyCode.E)))
             {
-                realScore += Big;
+                _realScore +=  _Big;
                 Destroy(other.gameObject);
-                CoinsManager.Instance.ScoreRate(realScore);
+                CoinsManager.Instance.ScoreRate(_realScore);
             }
-
-
         }
     }
 
