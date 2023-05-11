@@ -16,13 +16,14 @@ public class CoinsManager : MonoBehaviour
 
     private void Update()
     {
-          MyText.text = "Score: " + score;
+        MyText.text = "Score: " + score;
     }
 
     public void ScoreRate(int score)
     {
-        this.score += score;
+        this.score = score;
         MyText.text = score.ToString();
+
     }
   
 }

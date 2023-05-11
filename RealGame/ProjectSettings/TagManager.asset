@@ -6,6 +6,8 @@ TagManager:
   tags:
   - DisSpawn
   - Coins
+  - BigCoin
+  - SmallCoin
   layers:
   - Default
   - TransparentFX
